@@ -13,6 +13,7 @@ router.get('/', (req, res) => {
   });
 });
 
+
 // find one category by its `id` value + associated Products
 router.get('/:id', (req, res) => {
   Category.findOne({
@@ -21,6 +22,7 @@ router.get('/:id', (req, res) => {
     }
   })
 });
+
 
 // create a new category
 router.post('/', (req, res) => {
@@ -33,6 +35,7 @@ router.post('/', (req, res) => {
     res.status(500).json(err);
   });
 });
+
 
 // update a category by its `id` value
 router.put('/:id', (req, res) => {
@@ -78,5 +81,6 @@ router.delete('/:id', (req, res) => {
     res.status(500).json(err);
   });
 });
+
 
 module.exports = router;
