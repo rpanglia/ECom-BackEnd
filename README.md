@@ -11,7 +11,7 @@ Ecom-BackEnd is a backend application created for an e-commerce website. This ap
 
 ## Walkthrough-Video
 To view *ECom-BackEnd's* functionality, please see the below video.
-
+https://watch.screencastify.com/v/MP5EbeE2VGNdrdHkiVGf
 
 ## Screenshots
 ![getallproducts](/assets/getallproducts.jpg)
