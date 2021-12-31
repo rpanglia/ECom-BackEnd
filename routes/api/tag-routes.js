@@ -66,17 +66,18 @@ router.put('/:id', (req, res) => {
       where: {
       id: req.params.id
       }
-    })
-    .then(dbTagData => {
-      if (!dbTagData) {
-        res.status(404).json({ message: 'No tag with this id.' });
-        return;
-      }
-      res.json(dbTagData);
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
+    }
+  )
+  .then(dbTagData => {
+    if (!dbTagData) {
+      res.status(404).json({ message: 'No tag with this id.' });
+      return;
+    }
+    res.json(dbTagData);
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
   });
 });
 

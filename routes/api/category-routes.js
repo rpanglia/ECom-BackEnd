@@ -27,6 +27,7 @@ router.get('/:id', (req, res) => {
     where: {
       id: req.params.id
     },
+
     include: {
       model: Product,
       attributes: ['id', 'product_name', 'price', 'stock', 'category_id']
@@ -62,25 +63,23 @@ router.post('/', (req, res) => {
 // update a category by its `id` value
 router.put('/:id', (req, res) => {
   Category.update(
-    {
-      category_name: req.body.category_name
-    },
+    req.body,
     {
       where: {
         id: req.params.id
       }
     })
-    .then(dbCategoryInfo => {
-      if(!dbCategoryInfo) {
-        res.status(404).json({ message: 'No existing category with this id found.' });
-        return;
-      }
-      res.json(dbCategoryInfo);
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
+  .then(dbCategoryInfo => {
+    if(!dbCategoryInfo) {
+      res.status(404).json({ message: 'No existing category with this id found.' });
+      return;
+    }
+    res.json(dbCategoryInfo);
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
 });
 
 

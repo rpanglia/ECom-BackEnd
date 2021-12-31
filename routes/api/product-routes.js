@@ -33,10 +33,11 @@ router.get('/:id', (req, res) => {
     where: {
       id: req.params.id
     },
+      attributes: ['id', 'product_name', 'price', 'stock'],
       include: [
         {
           model: Category,
-          attributes: ['id', 'category_name']
+          attributes: ['category_name']
         },
 
         {
@@ -47,7 +48,7 @@ router.get('/:id', (req, res) => {
     })
   .then(dbProductData => {
     if(!dbProductData) {
-      res.status(404).json({ message: 'No category with this id.' });
+      res.status(404).json({ message: 'No product with this id.' });
       return;
     }
     res.json(dbProductData);
@@ -143,7 +144,7 @@ router.delete('/:id', (req, res) => {
   })
   .then(dbProductData => {
     if (!dbProductData) {
-      res.status(404).json({ message: 'No category with this id.' })
+      res.status(404).json({ message: 'No product with this id.' })
       return;
     }
     res.json(dbProductData);
